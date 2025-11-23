@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <title>Lencería D Lirius</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+  <style>
+    body{font-family:'Open Sans',sans-serif;background:#fafafa;margin:0;color:#212121}
+    header{background:linear-gradient(90deg,#7b1fa2,#e91e63);color:#fff;padding:20px;box-shadow:0 4px 12px rgba(0,0,0,.15)}
+    header h1{margin:0;font-family:'Montserrat',sans-serif;font-size:26px;font-weight:700}
+    .meta{font-size:13px;opacity:.9}
+    .container{display:grid;grid-template-columns:300px 1fr;gap:28px;padding:24px}
+    .sidebar{background:#fff;padding:18px;border-radius:14px;box-shadow:0 4px 20px rgba(0,0,0,.08)}
+    .sidebar input,.sidebar select{width:100%;margin:6px 0 10px;padding:10px;border:1px solid #ddd;border-radius:10px}
+    .sidebar button{width:100%;margin:6px 0;background:#7b1fa2;color:#fff;border:none;padding:10px;border-radius:10px;cursor:pointer;font-weight:600}
+    .carrito-panel{background:#fff;border-radius:16px;padding:18px;box-shadow:0 4px 20px rgba(0,0,0,.08)}
+    .carrito-panel .primary-action{background:#2e7d32;margin-bottom:12px;border:none;border-radius:10px;padding:10px;color:#fff;font-weight:700}
+    #items .item{display:flex;justify-content:space-between;margin:8px 0;font-size:14px}
+    .total-line{font-weight:700;font-size:15px;margin-top:8px}
+    #mercadoPagoBtn{background:#009ee3;color:#fff;border:none;padding:10px;border-radius:10px;font-weight:700;cursor:pointer;width:100%}
+    .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:24px}
+    .card{background:#fff;border-radius:16px;box-shadow:0 4px 20px rgba(0,0,0,.08);overflow:hidden;transition:transform .25s}
+    .card:hover{transform:translateY(-6px);box-shadow:0 8px 24px rgba(0,0,0,.15)}
+    .card img{width:100%;height:220px;object-fit:cover}
+    .info{padding:16px}
+    .info h4{margin:0 0 10px;font-family:'Montserrat',sans-serif;font-size:18px;font-weight:600}
+    .price{font-weight:700;color:#2e7d32;font-size:19px;margin:10px 0}
+    .actions{display:flex;gap:8px}
+    .btn{flex:1;padding:10px;border:none;border-radius:8px;font-weight:600;color:#fff;cursor:pointer}
+    .btn.agregar{background:#2e7d32}.btn.modificar{background:#fb8c00}.btn.quitar{background:#e53935}
+    .modal{position:fixed;inset:0;background:rgba(0,0,0,.5);display:none;align-items:center;justify-content:center}
+    .modal.show{display:flex}
+    .panel{background:#fff;padding:20px;border-radius:16px;width:760px;max-width:92%}
+    footer{text-align:center;padding:18px;color:#555;background:#fff;border-top:1px solid #eee}
+    .whatsapp-fab{position:fixed;right:20px;bottom:20px;background:#25D366;color:#fff;padding:14px 18px;border-radius:50px;text-decoration:none;font-weight:700;display:flex;align-items:center;gap:8px;box-shadow:0 4px 12px rgba(0,0,0,.2)}
+    .whatsapp-fab img{width:20px;height:20px}
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Lencería D Lirius — Sistema de Venta</h1>
+    <div class="meta">Propietaria: Sonia Velez | Diseño y sistema: Marcelo Muraña</div>
+  </header>
+
+  <div class="container">
+    <aside class="sidebar">
+      <h3>Filtros</h3>
+      <input id="f_q" placeholder="Buscar producto..." />
+      <select id="f_categoria"><option value="">Categoría</option><option>Conjuntos</option><option>Bodies</option><option>Corpiños</option><option>Panties</option><option>Batas</option></select>
+      <button onclick="renderCatalog()">Aplicar filtros</button>
+      <hr>
+      <button onclick="agregarArticulo()">Agregar artículo</button>
+      <section id="carrito" class="carrito-panel">
+        <button class="primary-action" onclick="finalizarCompra()">Finalizar compra</button>
+        <h3>🛒 Carrito</h3>
+        <div id="items"></div>
+        <p class="total-line">Total: $<span id="total">0.00</span></p>
+        <button id="mercadoPagoBtn">Pagar con Mercado Pago</button>
+      </section>
+    </aside>
+
+    <main>
+      <div id="grid" class="grid"></div>
+      <h3 style="margin-top:24px">Ventas realizadas</h3>
+      <div id="ventas_list"></div>
+    </main>
+  </div>
+
+  <div id="modal" class="modal">
+    <div class="panel">
+      <h3>Comprobante — Lencería D Lirius</h3>
+      <div id="m_contenido"></div>
+      <div>
+        <button onclick="exportarPDF()">Exportar a PDF</button>
+        <button onclick="cerrarModal()">Cerrar</button>
+      </div>
+    </div>
+  </div>
+
+  <footer>© Lencería D Lirius — Propietaria: Sonia Velez | Diseño y sistema: Marcelo Muraña</footer>
+
+  <!-- Botón flotante WhatsApp -->
+  <a class="whatsapp-fab" href="https://wa.me/5492254531229" target="_blank">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp"> WhatsApp
+  </a>
+
+  <script>
+    const { jsPDF } = window.jspdf;
+
+    // Estado con LocalStorage
+    let productos = JSON.parse(localStorage.getItem("productos")) || [
+      {id:1,nombre:"Conjunto encaje negro",categoria:"Conjuntos",precio:12000,imagen:"img/conjunto1.jpg",talle:"M",marca:"D Lirius"},
+      {id:2,nombre:"Body rojo clásico",categoria:"Bodies",precio:9800,imagen:"img/body-rojo.jpg",talle:"S",marca:"D Lirius"},
+      {id:3,nombre:"Corpiño blanco push-up",categoria:"Corpiños",precio:7500,imagen:"img/corpinio-blanco.jpg",talle:"L",marca:"D Lirius"},
+      {id:4,nombre:"Panties encaje rosa",categoria:"Panties",precio:4200,imagen:"img/panties-rosa.jpg",talle:"M",marca:"D Lirius"},
+      {id:5,nombre:"Bata satén azul",categoria:"Batas",precio:15500,imagen:"img/bata-azul.jpg",talle:"XL",marca:"D Lirius"}
+    ];
+    let carrito = JSON.parse(localStorage.getItem("carrito")) || [];
+    let ventas = JSON.parse(localStorage.getItem("ventas")) || [];
+
+    function guardarEstado(){
+      localStorage.setItem("productos",JSON.stringify(productos));
+      localStorage.setItem("carrito",JSON.stringify(carrito));
+      localStorage.setItem("ventas",JSON.stringify(ventas));
+    }
+
+    function filtrarProductos(){
+      const q=(document.getElementById("f_q").value||"").toLowerCase();
+      const cat=document.getElementById("f_categoria").value;
+      return productos.filter(p=>
+        (!q||p.nombre.toLowerCase().includes(q)) &&
+        (!cat||p.categoria===cat)
+      );
+    }
+
+    function renderCatalog(){
+      const grid=document.getElementById("grid");
+      const lista=filtrarProductos();
+      grid.innerHTML=lista.map(p=>`
+        <div class="card">
+          <img
+                    <img src="${p.imagen}" alt="${p.nombre}">
+          <div class="info">
+            <h4>${p.nombre}</h4>
+            <div class="price">$${p.precio.toFixed(2)}</div>
+            <p><strong>Talle:</strong> ${p.talle}</p>
+            <p><strong>Marca:</strong> ${p.marca}</p>
+            <div class="actions">
+              <button class="btn agregar" onclick="agregarCarrito(${p.id})">Agregar</button>
+              <button class="btn modificar" onclick="modificarArticulo(${p.id})">Modificar</button>
+              <button class="btn quitar" onclick="quitarArticulo(${p.id})">Quitar</button>
+            </div>
+          </div>
+        </div>
+      `).join("");
+    }
+
+    function agregarCarrito(id){
+      const p=productos.find(x=>x.id===id); if(!p) return;
+      const item=carrito.find(i=>i.id===id);
+      if(item){ item.cantidad++; } else { carrito.push({id:p.id,nombre:p.nombre,precio:p.precio,cantidad:1}); }
+      guardarEstado(); renderCarrito();
+    }
+
+    function renderCarrito(){
+      const items=document.getElementById("items");
+      let total=0;
+      items.innerHTML=carrito.map(i=>{
+        const prod=productos.find(p=>p.id===i.id);
+        const sub=i.precio*i.cantidad; total+=sub;
+        return `<div class="item"><span>${i.nombre} (Talle ${prod.talle}, Marca ${prod.marca}) x${i.cantidad}</span><span>$${sub.toFixed(2)}</span></div>`;
+      }).join("");
+      document.getElementById("total").textContent=total.toFixed(2);
+    }
+
+    function modificarArticulo(id){
+      const p=productos.find(x=>x.id===id); if(!p) return;
+      const nombre=prompt("Nuevo nombre:",p.nombre) || p.nombre;
+      const precio=parseFloat(prompt("Nuevo precio:",p.precio)) || p.precio;
+      const talle=prompt("Nuevo talle:",p.talle) || p.talle;
+      const marca=prompt("Nueva marca:",p.marca) || p.marca;
+      const imagen=prompt("Nueva ruta de imagen:",p.imagen) || p.imagen;
+      
+      p.nombre=nombre;
+      p.precio=precio;
+      p.talle=talle;
+      p.marca=marca;
+      p.imagen=imagen;
+
+      guardarEstado();
+      renderCatalog();
+      renderCarrito();
+    }
+
+    function quitarArticulo(id){
+      productos=productos.filter(p=>p.id!==id);
+      carrito=carrito.filter(i=>i.id!==id);
+      guardarEstado(); renderCatalog(); renderCarrito();
+    }
+
+    function agregarArticulo(){
+      const nombre=prompt("Nombre del artículo:"); if(!nombre) return;
+      const precio=parseFloat(prompt("Precio:",5000)) || 5000;
+      const talle=prompt("Talle:","M") || "M";
+      const marca=prompt("Marca:","D Lirius") || "D Lirius";
+      const imagen=prompt("Ruta de imagen (ej: img/nuevo.jpg):","img/"+nombre.toLowerCase().replace(/ /g,"-")+".jpg") || "img/"+nombre.toLowerCase().replace(/ /g,"-")+".jpg";
+      const id=(productos.reduce((m,p)=>Math.max(m,p.id),0))+1;
+
+      productos.push({id,nombre,categoria:"Conjuntos",precio,imagen,talle,marca});
+      guardarEstado(); renderCatalog();
+    }
+
+    function finalizarCompra(){
+      if(carrito.length===0) return alert("Carrito vacío");
+      const comprador=prompt("Nombre del comprador:"); if(!comprador) return;
+      const vendedor=prompt("Nombre del vendedor:"); if(!vendedor) return;
+      const total=carrito.reduce((a,i)=>a+i.precio*i.cantidad,0);
+      const comprobante={id:Date.now(),fecha:new Date().toLocaleString(),comprador,vendedor,items:[...carrito],total};
+      ventas.push(comprobante);
+      guardarEstado();
+      renderVentas();
+      let html=`<p><strong>Nº de venta:</strong> ${comprobante.id}</p>
+        <p><strong>Fecha:</strong> ${comprobante.fecha}</p>
+        <p><strong>Comprador:</strong> ${comprobante.comprador}</p>
+        <p><strong>Vendedor:</strong> ${comprobante.vendedor}</p>
+        <p><strong>Total:</strong> $${total.toFixed(2)}</p><hr>`;
+      comprobante.items.forEach(i=>{
+        const prod=productos.find(p=>p.id===i.id);
+        html+=`<p>${i.nombre} (Talle ${prod.talle}, Marca ${prod.marca}) x${i.cantidad} — $${(i.precio*i.cantidad).toFixed(2)}</p>`;
+      });
+      document.getElementById("m_contenido").innerHTML=html;
+      document.getElementById("modal").classList.add("show");
+      carrito=[]; guardarEstado(); renderCarrito();
+    }
+
+    function renderVentas(){
+      const v=document.getElementById("ventas_list");
+      v.innerHTML=ventas.slice().reverse().map(c=>`
+        <div style="border:1px solid #eee;padding:12px;border-radius:12px;margin:6px 0;background:#fff;">
+          <strong>Venta ${c.id}</strong> — ${c.fecha}<br/>
+          Comprador: ${c.comprador} | Vendedor: ${c.vendedor} | Total $${c.total.toFixed(2)}
+        </div>
+      `).join("");
+    }
+
+    function cerrarModal(){ document.getElementById("modal").classList.remove("show"); }
+
+    function exportarPDF(){
+      const contenido=document.getElementById("m_contenido").innerText;
+      if(!contenido) return alert("No hay comprobante actual.");
+      const doc=new jsPDF(); let y=20;
+      doc.setFontSize(18); doc.text("Lencería D Lirius",10,y); y+=8;
+      doc.setFontSize(12);
+      doc.text("Propietaria: Sonia Velez",10,y); y+=5;
+      doc.text("Diseño y sistema: Marcelo Muraña",10,y); y+=10;
+      contenido.split("\n").forEach(l=>{ doc.text(l,10,y); y+=6; });
+      y+=10; doc.setFontSize(10);
+      doc.text("Cariló, Provincia de Buenos Aires | WhatsApp: +54 9 2254 531229",10,y);
+      doc.save(`Comprobante_${Date.now()}.pdf`);
+    }
+
+    // Inicializar
+    document.addEventListener("DOMContentLoaded",()=>{
+      renderCatalog();
+      renderCarrito();
+      renderVentas();
+    });
+  </script>
+</body>
+</html>

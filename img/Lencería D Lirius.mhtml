@@ -1,0 +1,327 @@
+From: <Saved by Blink>
+Snapshot-Content-Location: file:///C:/Users/marce/OneDrive/Desktop/lenceria/frontend/img/Lencer%C3%ADa%20D%20Lirius.html
+Subject: =?utf-8?Q?Lencer=C3=ADa=20D=20Lirius?=
+Date: Sat, 22 Nov 2025 17:31:33 -0300
+MIME-Version: 1.0
+Content-Type: multipart/related;
+	type="text/html";
+	boundary="----MultipartBoundary--mmrVsrnlSkHVboqID5Q6TPPtvMPQOlCQJzWJbCXNmU----"
+
+
+------MultipartBoundary--mmrVsrnlSkHVboqID5Q6TPPtvMPQOlCQJzWJbCXNmU----
+Content-Type: text/html
+Content-ID: <frame-FD377C9B13E4F058DD968A4329BDE0CC@mhtml.blink>
+Content-Transfer-Encoding: quoted-printable
+Content-Location: file:///C:/Users/marce/OneDrive/Desktop/lenceria/frontend/img/Lencer%C3%ADa%20D%20Lirius.html
+
+<!DOCTYPE html><!-- saved from url=3D(0068)file:///C:/Users/marce/OneDrive/=
+Desktop/lenceria/frontend/index.html --><html lang=3D"es"><head><meta http-=
+equiv=3D"Content-Type" content=3D"text/html; charset=3DUTF-8"><link rel=3D"=
+stylesheet" type=3D"text/css" href=3D"cid:css-0f83fb88-b8ab-4318-8f0e-46364=
+4a1330c@mhtml.blink" />
+ =20
+  <title>Lencer=C3=ADa D Lirius</title>
+  <meta name=3D"viewport" content=3D"width=3Ddevice-width, initial-scale=3D=
+1">
+ =20
+ =20
+</head>
+<body>
+  <header>
+    <h1>Lencer=C3=ADa D Lirius =E2=80=94 Sistema de Venta</h1>
+    <div class=3D"meta">Propietaria: Sonia Velez | Dise=C3=B1o y sistema: M=
+arcelo Mura=C3=B1a</div>
+  </header>
+
+  <div class=3D"container">
+    <aside class=3D"sidebar">
+      <h3>Filtros</h3>
+      <input id=3D"f_q" placeholder=3D"Buscar producto...">
+      <select id=3D"f_categoria"><option value=3D"">Categor=C3=ADa</option>=
+<option>Conjuntos</option><option>Bodies</option><option>Corpi=C3=B1os</opt=
+ion><option>Panties</option><option>Batas</option></select>
+      <button>Aplicar filtros</button>
+      <hr>
+      <button>Agregar art=C3=ADculo</button>
+      <section id=3D"carrito" class=3D"carrito-panel">
+        <button class=3D"primary-action">Finalizar compra</button>
+        <h3>=F0=9F=9B=92 Carrito</h3>
+        <div id=3D"items"></div>
+        <p class=3D"total-line">Total: $<span id=3D"total">0.00</span></p>
+        <button id=3D"mercadoPagoBtn">Pagar con Mercado Pago</button>
+      </section>
+    </aside>
+
+    <main>
+      <div id=3D"grid" class=3D"grid">
+        <div class=3D"card">
+          <img <img=3D"" src=3D"file:///C:/Users/marce/OneDrive/Desktop/len=
+ceria/frontend/img/img/conjunto1.jpg" alt=3D"Conjunto encaje negro">
+          <div class=3D"info">
+            <h4>Conjunto encaje negro</h4>
+            <div class=3D"price">$26000.00</div>
+            <p><strong>Talle:</strong> M</p>
+            <p><strong>Marca:</strong> Kaury</p>
+            <div class=3D"actions">
+              <button class=3D"btn agregar">Agregar</button>
+              <button class=3D"btn modificar">Modificar</button>
+              <button class=3D"btn quitar">Quitar</button>
+            </div>
+          </div>
+        </div>
+     =20
+        <div class=3D"card">
+          <img <img=3D"" src=3D"file:///C:/Users/marce/OneDrive/Desktop/len=
+ceria/frontend/img/img/conjunto-rojo.jpg" alt=3D"Conjunto rojo">
+          <div class=3D"info">
+            <h4>Conjunto rojo</h4>
+            <div class=3D"price">$19800.00</div>
+            <p><strong>Talle:</strong> M</p>
+            <p><strong>Marca:</strong> Kaury</p>
+            <div class=3D"actions">
+              <button class=3D"btn agregar">Agregar</button>
+              <button class=3D"btn modificar">Modificar</button>
+              <button class=3D"btn quitar">Quitar</button>
+            </div>
+          </div>
+        </div>
+     =20
+        <div class=3D"card">
+          <img <img=3D"" src=3D"file:///C:/Users/marce/OneDrive/Desktop/len=
+ceria/frontend/img/img/corpi%C3%B1o-blanco.jpg" alt=3D"Corpi=C3=B1o blanco =
+push-up">
+          <div class=3D"info">
+            <h4>Corpi=C3=B1o blanco push-up</h4>
+            <div class=3D"price">$17500.00</div>
+            <p><strong>Talle:</strong> M</p>
+            <p><strong>Marca:</strong> undefined</p>
+            <div class=3D"actions">
+              <button class=3D"btn agregar">Agregar</button>
+              <button class=3D"btn modificar">Modificar</button>
+              <button class=3D"btn quitar">Quitar</button>
+            </div>
+          </div>
+        </div>
+     =20
+        <div class=3D"card">
+          <img <img=3D"" src=3D"file:///C:/Users/marce/OneDrive/Desktop/len=
+ceria/frontend/img/img/pack.jpg" alt=3D"Colaless">
+          <div class=3D"info">
+            <h4>Colaless</h4>
+            <div class=3D"price">$15000.00</div>
+            <p><strong>Talle:</strong> M</p>
+            <p><strong>Marca:</strong> undefined</p>
+            <div class=3D"actions">
+              <button class=3D"btn agregar">Agregar</button>
+              <button class=3D"btn modificar">Modificar</button>
+              <button class=3D"btn quitar">Quitar</button>
+            </div>
+          </div>
+        </div>
+     =20
+        <div class=3D"card">
+          <img <img=3D"" src=3D"file:///C:/Users/marce/OneDrive/Desktop/len=
+ceria/frontend/img/img/pack-3.jpg" alt=3D"Pack colaless">
+          <div class=3D"info">
+            <h4>Pack colaless</h4>
+            <div class=3D"price">$15500.00</div>
+            <p><strong>Talle:</strong> U</p>
+            <p><strong>Marca:</strong> Dolcisima</p>
+            <div class=3D"actions">
+              <button class=3D"btn agregar">Agregar</button>
+              <button class=3D"btn modificar">Modificar</button>
+              <button class=3D"btn quitar">Quitar</button>
+            </div>
+          </div>
+        </div>
+     =20
+        <div class=3D"card">
+          <img <img=3D"" src=3D"file:///C:/Users/marce/OneDrive/Desktop/len=
+ceria/frontend/img/img/boxer.jpg" alt=3D"Boxer">
+          <div class=3D"info">
+            <h4>Boxer</h4>
+            <div class=3D"price">$19000.00</div>
+            <p><strong>Talle:</strong> M</p>
+            <p><strong>Marca:</strong> Lody</p>
+            <div class=3D"actions">
+              <button class=3D"btn agregar">Agregar</button>
+              <button class=3D"btn modificar">Modificar</button>
+              <button class=3D"btn quitar">Quitar</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <h3 style=3D"margin-top:24px">Ventas realizadas</h3>
+      <div id=3D"ventas_list">
+        <div style=3D"border:1px solid #eee;padding:12px;border-radius:12px=
+;margin:6px 0;background:#fff;">
+          <strong>Venta 1763842282187</strong> =E2=80=94 22/11/2025, 05:11:=
+22<br>
+          Comprador: Eva | Vendedor: Sonia Velez | Total $154700.00
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <div id=3D"modal" class=3D"modal">
+    <div class=3D"panel">
+      <h3>Comprobante =E2=80=94 Lencer=C3=ADa D Lirius</h3>
+      <div id=3D"m_contenido"></div>
+      <div>
+        <button>Exportar a PDF</button>
+        <button>Cerrar</button>
+      </div>
+    </div>
+  </div>
+
+  <footer>=C2=A9 Lencer=C3=ADa D Lirius =E2=80=94 Propietaria: Sonia Velez =
+| Dise=C3=B1o y sistema: Marcelo Mura=C3=B1a</footer>
+
+  <!-- Bot=C3=B3n flotante WhatsApp -->
+  <a class=3D"whatsapp-fab" href=3D"https://wa.me/5492254531229" target=3D"=
+_blank">
+    <img src=3D"file:///C:/Users/marce/OneDrive/Desktop/lenceria/frontend/i=
+mg/Lencer%C3%ADa%20D%20Lirius_files/WhatsApp.svg" alt=3D"WhatsApp" width=3D=
+"20" height=3D"20"> WhatsApp
+  </a>
+
+ =20
+
+</body></html>
+------MultipartBoundary--mmrVsrnlSkHVboqID5Q6TPPtvMPQOlCQJzWJbCXNmU----
+Content-Type: image/svg+xml
+Content-Transfer-Encoding: quoted-printable
+Content-Location: file:///C:/Users/marce/OneDrive/Desktop/lenceria/frontend/img/Lencer%C3%ADa%20D%20Lirius_files/WhatsApp.svg
+
+<svg xmlns=3D"http://www.w3.org/2000/svg" viewBox=3D"0 0 175.216 175.552"><=
+defs><linearGradient id=3D"b" x1=3D"85.915" x2=3D"86.535" y1=3D"32.567" y2=
+=3D"137.092" gradientUnits=3D"userSpaceOnUse"><stop offset=3D"0" stop-color=
+=3D"#57d163"/><stop offset=3D"1" stop-color=3D"#23b33a"/></linearGradient><=
+filter id=3D"a" width=3D"1.115" height=3D"1.114" x=3D"-.057" y=3D"-.057" co=
+lor-interpolation-filters=3D"sRGB"><feGaussianBlur stdDeviation=3D"3.531"/>=
+</filter></defs><path fill=3D"#b3b3b3" d=3D"m54.532 138.45 2.235 1.324c9.38=
+7 5.571 20.15 8.518 31.126 8.523h.023c33.707 0 61.139-27.426 61.153-61.135.=
+006-16.335-6.349-31.696-17.895-43.251A60.75 60.75 0 0 0 87.94 25.983c-33.73=
+3 0-61.166 27.423-61.178 61.13a60.98 60.98 0 0 0 9.349 32.535l1.455 2.312-6=
+.179 22.558zm-40.811 23.544L24.16 123.88c-6.438-11.154-9.825-23.808-9.821-3=
+6.772.017-40.556 33.021-73.55 73.578-73.55 19.681.01 38.154 7.669 52.047 21=
+.572s21.537 32.383 21.53 52.037c-.018 40.553-33.027 73.553-73.578 73.553h-.=
+032c-12.313-.005-24.412-3.094-35.159-8.954zm0 0" filter=3D"url(#a)"/><path =
+fill=3D"#fff" d=3D"m12.966 161.238 10.439-38.114a73.42 73.42 0 0 1-9.821-36=
+.772c.017-40.556 33.021-73.55 73.578-73.55 19.681.01 38.154 7.669 52.047 21=
+.572s21.537 32.383 21.53 52.037c-.018 40.553-33.027 73.553-73.578 73.553h-.=
+032c-12.313-.005-24.412-3.094-35.159-8.954z"/><path fill=3D"url(#linearGrad=
+ient1780)" d=3D"M87.184 25.227c-33.733 0-61.166 27.423-61.178 61.13a60.98 6=
+0.98 0 0 0 9.349 32.535l1.455 2.312-6.179 22.559 23.146-6.069 2.235 1.324c9=
+.387 5.571 20.15 8.518 31.126 8.524h.023c33.707 0 61.14-27.426 61.153-61.13=
+5a60.75 60.75 0 0 0-17.895-43.251 60.75 60.75 0 0 0-43.235-17.929z"/><path =
+fill=3D"url(#b)" d=3D"M87.184 25.227c-33.733 0-61.166 27.423-61.178 61.13a6=
+0.98 60.98 0 0 0 9.349 32.535l1.455 2.313-6.179 22.558 23.146-6.069 2.235 1=
+.324c9.387 5.571 20.15 8.517 31.126 8.523h.023c33.707 0 61.14-27.426 61.153=
+-61.135a60.75 60.75 0 0 0-17.895-43.251 60.75 60.75 0 0 0-43.235-17.928z"/>=
+<path fill=3D"#fff" fill-rule=3D"evenodd" d=3D"M68.772 55.603c-1.378-3.061-=
+2.828-3.123-4.137-3.176l-3.524-.043c-1.226 0-3.218.46-4.902 2.3s-6.435 6.28=
+7-6.435 15.332 6.588 17.785 7.506 19.013 12.718 20.381 31.405 27.75c15.529 =
+6.124 18.689 4.906 22.061 4.6s10.877-4.447 12.408-8.74 1.532-7.971 1.073-8.=
+74-1.685-1.226-3.525-2.146-10.877-5.367-12.562-5.981-2.91-.919-4.137.921-4.=
+746 5.979-5.819 7.206-2.144 1.381-3.984.462-7.76-2.861-14.784-9.124c-5.465-=
+4.873-9.154-10.891-10.228-12.73s-.114-2.835.808-3.751c.825-.824 1.838-2.147=
+ 2.759-3.22s1.224-1.84 1.836-3.065.307-2.301-.153-3.22-4.032-10.011-5.666-1=
+3.647"/></svg>
+------MultipartBoundary--mmrVsrnlSkHVboqID5Q6TPPtvMPQOlCQJzWJbCXNmU----
+Content-Type: text/css
+Content-Transfer-Encoding: quoted-printable
+Content-Location: cid:css-0f83fb88-b8ab-4318-8f0e-463644a1330c@mhtml.blink
+
+@charset "utf-8";
+
+body { font-family: "Open Sans", sans-serif; background: rgb(250, 250, 250)=
+; margin: 0px; color: rgb(33, 33, 33); }
+
+header { background: linear-gradient(90deg, rgb(123, 31, 162), rgb(233, 30,=
+ 99)); color: rgb(255, 255, 255); padding: 20px; box-shadow: rgba(0, 0, 0, =
+0.15) 0px 4px 12px; }
+
+header h1 { margin: 0px; font-family: Montserrat, sans-serif; font-size: 26=
+px; font-weight: 700; }
+
+.meta { font-size: 13px; opacity: 0.9; }
+
+.container { display: grid; grid-template-columns: 300px 1fr; gap: 28px; pa=
+dding: 24px; }
+
+.sidebar { background: rgb(255, 255, 255); padding: 18px; border-radius: 14=
+px; box-shadow: rgba(0, 0, 0, 0.08) 0px 4px 20px; }
+
+.sidebar input, .sidebar select { width: 100%; margin: 6px 0px 10px; paddin=
+g: 10px; border: 1px solid rgb(221, 221, 221); border-radius: 10px; }
+
+.sidebar button { width: 100%; margin: 6px 0px; background: rgb(123, 31, 16=
+2); color: rgb(255, 255, 255); border: none; padding: 10px; border-radius: =
+10px; cursor: pointer; font-weight: 600; }
+
+.carrito-panel { background: rgb(255, 255, 255); border-radius: 16px; paddi=
+ng: 18px; box-shadow: rgba(0, 0, 0, 0.08) 0px 4px 20px; }
+
+.carrito-panel .primary-action { background: rgb(46, 125, 50); margin-botto=
+m: 12px; border: none; border-radius: 10px; padding: 10px; color: rgb(255, =
+255, 255); font-weight: 700; }
+
+#items .item { display: flex; justify-content: space-between; margin: 8px 0=
+px; font-size: 14px; }
+
+.total-line { font-weight: 700; font-size: 15px; margin-top: 8px; }
+
+#mercadoPagoBtn { background: rgb(0, 158, 227); color: rgb(255, 255, 255); =
+border: none; padding: 10px; border-radius: 10px; font-weight: 700; cursor:=
+ pointer; width: 100%; }
+
+.grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260p=
+x, 1fr)); gap: 24px; }
+
+.card { background: rgb(255, 255, 255); border-radius: 16px; box-shadow: rg=
+ba(0, 0, 0, 0.08) 0px 4px 20px; overflow: hidden; transition: transform 0.2=
+5s; }
+
+.card:hover { transform: translateY(-6px); box-shadow: rgba(0, 0, 0, 0.15) =
+0px 8px 24px; }
+
+.card img { width: 100%; height: 220px; object-fit: cover; }
+
+.info { padding: 16px; }
+
+.info h4 { margin: 0px 0px 10px; font-family: Montserrat, sans-serif; font-=
+size: 18px; font-weight: 600; }
+
+.price { font-weight: 700; color: rgb(46, 125, 50); font-size: 19px; margin=
+: 10px 0px; }
+
+.actions { display: flex; gap: 8px; }
+
+.btn { flex: 1 1 0%; padding: 10px; border: none; border-radius: 8px; font-=
+weight: 600; color: rgb(255, 255, 255); cursor: pointer; }
+
+.btn.agregar { background: rgb(46, 125, 50); }
+
+.btn.modificar { background: rgb(251, 140, 0); }
+
+.btn.quitar { background: rgb(229, 57, 53); }
+
+.modal { position: fixed; inset: 0px; background: rgba(0, 0, 0, 0.5); displ=
+ay: none; align-items: center; justify-content: center; }
+
+.modal.show { display: flex; }
+
+.panel { background: rgb(255, 255, 255); padding: 20px; border-radius: 16px=
+; width: 760px; max-width: 92%; }
+
+footer { text-align: center; padding: 18px; color: rgb(85, 85, 85); backgro=
+und: rgb(255, 255, 255); border-top: 1px solid rgb(238, 238, 238); }
+
+.whatsapp-fab { position: fixed; right: 20px; bottom: 20px; background: rgb=
+(37, 211, 102); color: rgb(255, 255, 255); padding: 14px 18px; border-radiu=
+s: 50px; text-decoration: none; font-weight: 700; display: flex; align-item=
+s: center; gap: 8px; box-shadow: rgba(0, 0, 0, 0.2) 0px 4px 12px; }
+
+.whatsapp-fab img { width: 20px; height: 20px; }
+------MultipartBoundary--mmrVsrnlSkHVboqID5Q6TPPtvMPQOlCQJzWJbCXNmU------
